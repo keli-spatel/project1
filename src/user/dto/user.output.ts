@@ -15,11 +15,8 @@ lastName?:string
 @Field(() => String)
 email?:string
 
-@Field(() => String)
-birthDate?:string
-
-@Field(() => String)
-token:string
+@Field(() => Date)
+dateOfBirth?:Date
 
 // @Field(() =>[HobbiesEntity])
 // hobbies:string

@@ -7,10 +7,14 @@ type User {
   firstName: String!
   lastName: String!
   email: String!
-  birthDate: String!
-  token: String!
+  dateOfBirth: DateTime!
   gender: String!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Query {
   users: [User!]!
@@ -21,15 +25,17 @@ type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!, Id: Float!): User!
   removeUser(id: Int!): User!
+  signUp(createUserInput: CreateUserInput!): String!
 }
 
 input CreateUserInput {
+  id: Int
   firstName: String!
   lastName: String!
-  email: String!
   password: String!
-  birthDate: String!
+  email: String!
   gender: Gender!
+  dateOfBirth: DateTime!
 }
 
 enum Gender {
@@ -39,10 +45,11 @@ enum Gender {
 }
 
 input UpdateUserInput {
+  id: Int
   firstName: String
   lastName: String
-  email: String
   password: String
-  birthDate: String
+  email: String
   gender: Gender
+  dateOfBirth: DateTime
 }

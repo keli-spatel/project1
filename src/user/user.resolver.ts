@@ -15,7 +15,7 @@ export class UserResolver {
   async createUser(
     @Args('createUserInput') createUserInput: CreateUserInput,
   ) {
-    return this.userService.create(createUserInput);
+    return this.userService.createUser(createUserInput);
   }
 
 
